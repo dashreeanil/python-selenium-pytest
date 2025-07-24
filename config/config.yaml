@@ -1,0 +1,22 @@
+# Environment configuration for Selenium Pytest Framework
+
+# Set the environment: dev, qa, staging, prod
+environment: dev
+
+# URLs for different environments
+urls:
+  dev: "https://dev.example.com"
+  qa: "https://qa.example.com"
+  staging: "https://staging.example.com"
+  prod: "https://www.example.com"
+
+# Database connection strings for different environments
+db_connection:
+  dev: "postgresql://user:password@localhost:5432/devdb"
+  qa: "postgresql://user:password@localhost:5432/qadb"
+  staging: "postgresql://user:password@localhost:5432/stagingdb"
+  prod: "postgresql://user:password@localhost:5432/proddb"
+
+# Browser settings
+browser: chrome
+headless: false
