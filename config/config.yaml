@@ -5,10 +5,10 @@ environment: dev
 
 # URLs for different environments
 urls:
-  dev: "https://dev.example.com"
-  qa: "https://qa.example.com"
-  staging: "https://staging.example.com"
-  prod: "https://www.example.com"
+  dev: "http://demostore.supersqa.com/"
+  qa: "http://demostore.supersqa.com/"
+  staging: "http://demostore.supersqa.com/"
+  prod: "http://demostore.supersqa.com/"
 
 # Database connection strings for different environments
 db_connection:
