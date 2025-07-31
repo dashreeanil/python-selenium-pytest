@@ -100,7 +100,8 @@ def init_driver(request, config):
         driver = webdriver.Firefox(options=get_firefox_options(headless))
     else:
         raise ValueError(f"Unsupported browser: {browser}")
-
+    driver.implicitly_wait(10)  # Set implicit wait for elements
+    driver.maximize_window()  # Maximize the browser window
     request.cls.driver = driver
 
     # Launch browser to environment-specific base_url if provided

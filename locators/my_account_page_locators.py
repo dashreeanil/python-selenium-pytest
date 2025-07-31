@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-class MyAccountPage:
+class MyAccountPageLocators:
     """
     This class represents the My Account page.
     """

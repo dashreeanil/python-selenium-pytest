@@ -1,6 +1,6 @@
 from utils.logger_utility import logger
 from utils.web_utility import WebUtility
-from utils.api_utility import ApiUtility   
+from utils.api_utility import APIUtility   
 from utils.random_data_utility import RandomDataUtility
 
 class BasePage:
@@ -17,6 +17,7 @@ class BasePage:
         self.driver = driver
         self.logger = logger
         self.web_utility = WebUtility(driver)
-        self.api_utility = ApiUtility()
+        self.timeout = self.web_utility.timeout 
+        self.api_utility = APIUtility()
         self.random_data_utility = RandomDataUtility()
         

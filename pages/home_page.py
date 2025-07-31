@@ -15,29 +15,29 @@ class HomePage(BasePage, HomePageLocators):
         """
         Click the Home link on the home page.
         """
-        self.click_element(self.HOME_LINK)
+        self.click(self.HOME_LINK)
     
     def click_cart_link(self):
         """
         Click the Cart link on the home page.
         """
-        self.click_element(self.CART_LINK)
+        self.click(self.CART_LINK)
 
     def click_checkout_link(self):
         """
         Click the Checkout link on the home page.
         """
-        self.click_element(self.CHECKOUT_LINK)
+        self.click(self.CHECKOUT_LINK)
 
     def click_my_account_link(self):
         """
         Click the My Account link on the home page.
         """
-        self.click_element(self.MY_ACCOUNT_LINK)
+        self.click(self.MY_ACCOUNT_LINK)
     
     def click_sample_page_link(self):
         """
         Click the Sample Page link on the home page.
         """
-        self.click_element(self.SAMPLE_PAGE_LINK)
+        self.click(self.SAMPLE_PAGE_LINK)
         
