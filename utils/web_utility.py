@@ -32,153 +32,156 @@ class WebUtility:
         return self
 
     @allure.step("Find element by {1}: {2}")
-    def find_element(self, by, value):
+    def find_element(self, locator):
         """
         Find a single element using the given locator strategy and value.
         """
         try:
-            logger.debug(f"Finding element by {by}: {value}")
+            logger.debug(f"Finding element by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_element_located((by, value))
+                EC.presence_of_element_located(locator)
             )
             return element
         except Exception as e:
-            logger.error(f"Failed to find element by {by}: {value} - {e}")
+            logger.error(f"Failed to find element by locator: {locator} - {e}")
             allure.attach(str(e), name="Find Element Error", attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step("Find elements by {1}: {2}")
-    def find_elements(self, by, value):
+    @allure.step("Find elements by locator: {locator}")
+    def find_elements(self, locator: tuple):
         """
         Find multiple elements using the given locator strategy and value.
         """
         try:
-            logger.debug(f"Finding elements by {by}: {value}")
+            logger.debug(f"Finding elements by locator: {locator}")
             elements = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_all_elements_located((by, value))
+                EC.presence_of_all_elements_located(locator)
             )
             return elements
         except Exception as e:
-            logger.error(f"Failed to find elements by {by}: {value} - {e}")
+            logger.error(f"Failed to find elements by locator: {locator} - {e}")
             allure.attach(str(e), name="Find Elements Error", attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step("Click element by {1}: {2}")
-    def click(self, by, value):
+    @allure.step("Click element by locator: {locator}")
+    def click(self, locator: tuple):
         """
         Click on an element after waiting for it to be clickable.
         """
         try:
-            logger.info(f"Clicking element by {by}: {value}")
+            logger.info(f"Clicking element by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.element_to_be_clickable((by, value))
+                EC.element_to_be_clickable(locator)
             )
             element.click()
         except Exception as e:
-            logger.error(f"Failed to click element by {by}: {value} - {e}")
+            logger.error(f"Failed to click element by locator: {locator} - {e}")
             allure.attach(str(e), name="Click Error", attachment_type=allure.attachment_type.TEXT)
             raise
         return self
 
-    @allure.step("Send keys '{3}' to element by {1}: {2}")
-    def send_keys(self, by, value, keys):
+    @allure.step("Send keys '{keys}' to element {locator}")
+    def send_keys(self, locator: tuple, keys: str):
         """
         Send keys to an element after waiting for it to be visible.
+
+        :param locator: Tuple of (By, locator_value)
+        :param keys: String to type into the element
         """
         try:
-            logger.info(f"Sending keys '{keys}' to element by {by}: {value}")
+            logger.info(f"Sending keys '{keys}' to element located by {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.visibility_of_element_located((by, value))
+                EC.visibility_of_element_located(locator)
             )
             element.clear()
             element.send_keys(keys)
         except Exception as e:
-            logger.error(f"Failed to send keys to element by {by}: {value} - {e}")
+            logger.error(f"Failed to send keys to element {locator} - {e}")
             allure.attach(str(e), name="Send Keys Error", attachment_type=allure.attachment_type.TEXT)
             raise
         return self
 
-    @allure.step("Get text from element by {1}: {2}")
-    def get_text(self, by, value):
+    @allure.step("Get text from element by {locator}")
+    def get_text(self, locator: tuple):
         """
         Get the text of an element after waiting for it to be visible.
         """
         try:
-            logger.debug(f"Getting text from element by {by}: {value}")
+            logger.debug(f"Getting text from element by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.visibility_of_element_located((by, value))
+                EC.visibility_of_element_located(locator)
             )
             text = element.text
             logger.info(f"Text found: {text}")
             return text
         except Exception as e:
-            logger.error(f"Failed to get text from element by {by}: {value} - {e}")
+            logger.error(f"Failed to get text from element by locator: {locator} - {e}")
             allure.attach(str(e), name="Get Text Error", attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step("Wait for element to be clickable by {1}: {2}")
-    def wait_for_clickable(self, by, value):
+    @allure.step("Wait for element to be clickable by locator: {locator}")
+    def wait_for_clickable(self, locator: tuple):
         """
         Wait for an element to be clickable and return it.
         """
         try:
-            logger.debug(f"Waiting for element to be clickable by {by}: {value}")
+            logger.debug(f"Waiting for element to be clickable by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.element_to_be_clickable((by, value))
+                EC.element_to_be_clickable(locator)
             )
             return element
         except Exception as e:
-            logger.error(f"Element not clickable by {by}: {value} - {e}")
+            logger.error(f"Element not clickable by locator: {locator} - {e}")
             allure.attach(str(e), name="Wait Clickable Error", attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step("Check if element is visible by {1}: {2}")
-    def is_visible(self, by, value):
+    @allure.step("Check if element is visible by locator: {locator}")
+    def is_visible(self, locator: tuple):
         """
         Check if an element is visible on the page.
         """
         try:
-            logger.debug(f"Checking visibility for element by {by}: {value}")
+            logger.debug(f"Checking visibility for element by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.visibility_of_element_located((by, value))
+                EC.visibility_of_element_located(locator)
             )
             logger.info("Element is visible.")
             return True
         except Exception as e:
-            logger.warning(f"Element not visible by {by}: {value} - {e}")
+            logger.warning(f"Element not visible by locator: {locator} - {e}")
             allure.attach(str(e), name="Visibility Error", attachment_type=allure.attachment_type.TEXT)
             return False
 
-    @allure.step("Get attribute '{3}' from element by {1}: {2}")
-    def get_attribute(self, by, value, attribute):
+    @allure.step("Get attribute '{2}' from element by locator: {locator}")
+    def get_attribute(self, locator: tuple, attribute):
         """
         Get the value of an attribute from an element.
         """
         try:
-            logger.debug(f"Getting attribute '{attribute}' from element by {by}: {value}")
+            logger.debug(f"Getting attribute '{attribute}' from element by locator: {locator}")
             element = WebDriverWait(self.driver, self.timeout).until(
-                EC.presence_of_element_located((by, value))
+                EC.presence_of_element_located(locator)
             )
             attr_value = element.get_attribute(attribute)
             logger.info(f"Attribute value: {attr_value}")
             return attr_value
         except Exception as e:
-            logger.error(f"Failed to get attribute '{attribute}' from element by {by}: {value} - {e}")
+            logger.error(f"Failed to get attribute '{attribute}' from element by locator: {locator} - {e}")
             allure.attach(str(e), name="Get Attribute Error", attachment_type=allure.attachment_type.TEXT)
             raise
 
-    @allure.step("Switch to frame by {1}: {2}")
-    def switch_to_frame(self, by, value):
+    @allure.step("Switch to frame by locator: {locator}")
+    def switch_to_frame(self, locator: tuple):
         """
         Switch to a frame using the given locator.
         """
         try:
-            logger.info(f"Switching to frame by {by}: {value}")
+            logger.info(f"Switching to frame by locator: {locator}")
             frame = WebDriverWait(self.driver, self.timeout).until(
-                EC.frame_to_be_available_and_switch_to_it((by, value))
+                EC.frame_to_be_available_and_switch_to_it(locator)
             )
         except Exception as e:
-            logger.error(f"Failed to switch to frame by {by}: {value} - {e}")
+            logger.error(f"Failed to switch to frame by locator: {locator} - {e}")
             allure.attach(str(e), name="Switch Frame Error", attachment_type=allure.attachment_type.TEXT)
             raise
         return self
