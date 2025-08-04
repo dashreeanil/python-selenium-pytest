@@ -1,6 +1,7 @@
 from pages.home_page import HomePage
 from pages.my_account_page import MyAccountPage
 from utils.helper_utility import HelperUtility
+import pytest
 class TestLoginNegativeScenarios:
     """
     Test class for negative login scenarios.
@@ -21,3 +22,21 @@ class TestLoginNegativeScenarios:
         my_account_page.login_user(data["username"], data["password"])
         error_message = my_account_page.get_invalid_login_message()
         assert data["error_message"] in error_message, "Expected error message not found."
+
+    @pytest.mark.parametrize("username, password, error_message", [
+        ("invalid_user", "valid_password", "Error:"),
+        ("valid_user", "invalid_password", "Error:"),
+        ("", "valid_password", "Error:"),
+        ("valid_user", "", "Error:"),
+        ("", "", "Error:")])
+    def test_login_with_invalid_credentials(self, init_driver, username, password, error_message): 
+        """
+        Test case to verify login with invalid credentials.
+        """
+        driver = init_driver
+        home_page = HomePage(driver)
+        my_account_page = MyAccountPage(driver)
+        home_page.click_my_account_link()
+        my_account_page.login_user(username, password)
+        actual_error_message = my_account_page.get_invalid_login_message()
+        my_account_page.check_for_text_contains(actual_error_message, error_message)

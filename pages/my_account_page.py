@@ -124,6 +124,16 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         self.login_user(username, password)
         actual_message = self.get_invalid_login_message()
         assert actual_message == error_message, f"Expected '{error_message}', but got '{actual_message}'"
+
+
+    def check_for_text_contains(self, actual_text, expected_text):
+        """
+        Check if the actual text contains the expected text.
+        Args:
+            actual_text (str): The text to check.
+            expected_text (str): The text that should be contained in the actual text.
+        """
+        self.helper.assert_for_text_conatins(actual_text, expected_text)
         
 
     

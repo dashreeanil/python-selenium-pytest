@@ -2,6 +2,7 @@ from utils.logger_utility import logger
 from utils.web_utility import WebUtility
 from utils.api_utility import APIUtility   
 from utils.random_data_utility import RandomDataUtility
+from utils.helper_utility import HelperUtility
 
 class BasePage:
     """
@@ -20,4 +21,5 @@ class BasePage:
         self.timeout = self.web_utility.timeout 
         self.api_utility = APIUtility()
         self.random_data_utility = RandomDataUtility()
+        self.helper = HelperUtility()
         
