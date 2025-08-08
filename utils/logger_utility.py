@@ -15,7 +15,7 @@ class LoggerUtility:
         log_file = os.path.join(log_dir, f"test_log_{timestamp}.log")
         self.logger = logging.getLogger(f"Logger_{timestamp}")
         self.logger.setLevel(log_level)
-        formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
+        formatter = logging.Formatter('%(asctime)s | %(levelname)s  | %(funcName)s | %(message)s', datefmt='%Y-%m-%d %H:%M:%S')
 
         file_handler = logging.FileHandler(log_file)
         file_handler.setFormatter(formatter)
