@@ -4,6 +4,8 @@ import yaml
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
+import datetime
+
 
 def load_config():
     """
@@ -111,6 +113,8 @@ def init_driver(request, config):
     yield driver
     driver.quit()
 
+
+
 @pytest.fixture(scope="session", autouse=True)
 def create_screenshot_dir():
     """
@@ -119,20 +123,31 @@ def create_screenshot_dir():
     if not os.path.exists("screenshot"):
         os.makedirs("screenshot")
 
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_configure(config):
+    global pytest_html
+    pytest_html = config.pluginmanager.getplugin("html")
+
+@pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):
-    """
-    Pytest hook to capture a screenshot if a test fails.
-    Args:
-        item: Test item object.
-        call: Call object.
-    """
     outcome = yield
-    rep = outcome.get_result()
-    if rep.when == "call" and rep.failed:
-        driver = getattr(item.instance, "driver", None)
+    report = outcome.get_result()
+
+    if report.when == "call" and report.failed:
+        # Access the test class instance
+        test_class_instance = item.instance
+        driver = getattr(test_class_instance, "driver", None)
+
         if driver:
-            test_case = item.parent.name if hasattr(item, "parent") else "unknown_case"
-            test_step = item.name
-            filename = f"screenshot/{test_case}_{test_step}.png"
-            driver.save_screenshot(filename)
+            screenshot_dir = os.path.abspath("screenshots")
+            os.makedirs(screenshot_dir, exist_ok=True)
+            timestamp = datetime.datetime.now().strftime("%Y-%m-%d_%H-%M-%S")
+            file_name = f"{item.name}_{timestamp}.png"
+            file_path = os.path.join(screenshot_dir, file_name)
+            driver.save_screenshot(file_path)
+            is_frontend = True if 'init_driver' in item.fixturenames else False
+            if is_frontend:
+                extra = getattr(report, 'extra', [])
+                extra.append(pytest_html.extras.image(file_path))
+                report.extra = extra
+
+

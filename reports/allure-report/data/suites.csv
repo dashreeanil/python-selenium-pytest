@@ -1,0 +1,40 @@
+"DESCRIPTION","DURATION IN MS","NAME","PARENT SUITE","START TIME","STATUS","STOP TIME","SUB SUITE","SUITE","TEST CLASS","TEST METHOD"
+"
+        Test to verify that the home page has loaded successfully.
+        ","361","test_home_page_loaded","tests","Fri Aug 08 19:02:22 IST 2025","passed","Fri Aug 08 19:02:22 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test case to verify login with invalid credentials.
+        ","2215","test_login_with_invalid_credentials[--Error:]","tests","Fri Aug 08 19:03:14 IST 2025","passed","Fri Aug 08 19:03:17 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test case to verify login with invalid credentials.
+        ","1826","test_login_with_invalid_credentials[valid_user-invalid_password-Error:]","tests","Fri Aug 08 19:03:08 IST 2025","passed","Fri Aug 08 19:03:09 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test case to verify login with an invalid username.
+        ","2326","test_login_with_invalid_username","tests","Fri Aug 08 19:03:04 IST 2025","passed","Fri Aug 08 19:03:06 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test case to verify login with invalid credentials.
+        ","2289","test_login_with_invalid_credentials[-valid_password-Error:]","tests","Fri Aug 08 19:03:09 IST 2025","passed","Fri Aug 08 19:03:12 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test to validate the default sorting of products on the home page.
+        ","1071","test_validate_default_sorting","tests","Fri Aug 08 19:02:22 IST 2025","broken","Fri Aug 08 19:02:23 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test case to verify login with invalid credentials.
+        ","1773","test_login_with_invalid_credentials[invalid_user-valid_password-Error:]","tests","Fri Aug 08 19:03:06 IST 2025","passed","Fri Aug 08 19:03:08 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test to search for a product on the home page.
+        ","2232","test_search_product[Belt]","tests","Fri Aug 08 19:02:38 IST 2025","passed","Fri Aug 08 19:02:40 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test case to verify login with invalid credentials.
+        ","2559","test_login_with_invalid_credentials[valid_user--Error:]","tests","Fri Aug 08 19:03:12 IST 2025","passed","Fri Aug 08 19:03:14 IST 2025","TestLoginNegativeScenarios","test_login_negative_scenarios","",""
+"
+        Test to search for a product on the home page.
+        ","1878","test_search_product[Polo]","tests","Fri Aug 08 19:02:53 IST 2025","passed","Fri Aug 08 19:02:54 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test to search for a product on the home page.
+        ","2880","test_search_product[Album]","tests","Fri Aug 08 19:02:24 IST 2025","passed","Fri Aug 08 19:02:26 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test to search for a product on the home page.
+        ","11494","test_search_product[Beanie]","tests","Fri Aug 08 19:02:26 IST 2025","broken","Fri Aug 08 19:02:38 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""
+"
+        Test to search for a product on the home page.
+        ","11965","test_search_product[Hoodie]","tests","Fri Aug 08 19:02:40 IST 2025","broken","Fri Aug 08 19:02:52 IST 2025","TestHomePageScenarios","test_home_page_scenarios","",""

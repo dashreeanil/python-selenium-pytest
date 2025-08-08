@@ -1,0 +1,8 @@
+2025-08-08 19:02:24 [[32mINFO[0m] Clicking the Home link.
+2025-08-08 19:02:24 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='Home']")
+2025-08-08 19:02:24 [[32mINFO[0m] Searching for product: Album
+2025-08-08 19:02:24 [[32mINFO[0m] Sending keys and submitting for element by locator: ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-08 19:02:24 [[32mINFO[0m] Sending keys 'Album' to element located by ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-08 19:02:25 [[32mINFO[0m] Asserting search results for product: Album
+2025-08-08 19:02:26 [[32mINFO[0m] Text found: Album
+2025-08-08 19:02:26 [[32mINFO[0m] Product 'Album' found in search results.

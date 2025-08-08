@@ -21,6 +21,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         Args:
             username (str): The username to enter.
         """
+        self.logger.info(f"Entering username: {username}")
         self.web_utility.send_keys(self.USERNAME_TEXT_FIELD, username)
 
     def enter_password(self, password):
@@ -29,24 +30,28 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         Args:
             password (str): The password to enter.
         """
+        self.logger.info(f"Entering password: {password}")
         self.web_utility.send_keys(self.PASSWORD_TEXT_FIELD, password)
 
     def click_remember_me_checkbox(self):
         """
         Click the Remember Me checkbox.
         """
+        self.logger.info("Clicking the Remember Me checkbox.")
         self.web_utility.click(self.REMEMBER_ME_CHECKBOX)
 
     def click_login_button(self):
         """
         Click the Login button.
         """
+        self.logger.info("Clicking the Login button.")
         self.web_utility.click(self.LOGIN_BUTTON)   
 
     def click_lost_your_password_link(self):
         """
         Click the 'Lost your password?' link.
         """
+        self.logger.info("Clicking the 'Lost your password?' link.")
         self.web_utility.click(self.LOST_YOUR_PASSWORD_LINK)
 
     def enter_register_email(self, email):
@@ -55,6 +60,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         Args:
             email (str): The email to enter for registration.
         """
+        self.logger.info(f"Entering registration email: {email}")
         self.web_utility.send_keys(self.REGISTER_EMAIL_TEXT_FIELD, email)
 
     def enter_register_password(self, password):
@@ -63,12 +69,14 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         Args:
             password (str): The password to enter for registration.
         """
+        self.logger.info(f"Entering registration password: {password}")
         self.web_utility.send_keys(self.REGISTER_PASSWORD_TEXT_FIELD, password)
 
     def click_register_button(self):
         """
         Click the Register button.
         """
+        self.logger.info("Clicking the Register button.")
         self.web_utility.click(self.REGISTER_BUTTON)
 
     def register_user(self, email, password):
@@ -78,6 +86,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
             email (str): The email to register.
             password (str): The password to register.
         """
+        self.logger.info(f"Registering user with email: {email} and password: {password}")
         self.enter_register_email(email)
         self.enter_register_password(password)
         self.click_register_button()
@@ -89,6 +98,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
             username (str): The username to log in.
             password (str): The password to log in.
         """
+        self.logger.info(f"Logging in user with username: {username} and password: {password}")
         self.enter_username(username)
         self.enter_password(password)
         self.click_login_button()
@@ -100,6 +110,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
             username (str): The username to log in.
             password (str): The password to log in.
         """
+        self.logger.info(f"Logging in user with username: {username}, password: {password}, and remember me option.")
         self.enter_username(username)
         self.enter_password(password)
         self.click_remember_me_checkbox()
@@ -111,6 +122,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
         Returns:
             str: The invalid login message text.
         """
+        self.logger.info("Retrieving invalid login message.")
         return self.web_utility.get_text(self.INVALID_LOGIN_MESSAGE)
 
     def check_if_invalid_login_message_is_displayed(self,username, password,error_message):
@@ -121,6 +133,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
             password (str): The password to log in.
             error_message (str): The expected error message.
         """
+        self.logger.info(f"Checking if invalid login message is displayed for username: {username} and password: {password}")
         self.login_user(username, password)
         actual_message = self.get_invalid_login_message()
         assert actual_message == error_message, f"Expected '{error_message}', but got '{actual_message}'"
@@ -133,6 +146,7 @@ class MyAccountPage(BasePage,MyAccountPageLocators):
             actual_text (str): The text to check.
             expected_text (str): The text that should be contained in the actual text.
         """
+        self.logger.info(f"Checking if actual text contains expected text: {expected_text}")
         self.helper.assert_for_text_conatins(actual_text, expected_text)
         
 

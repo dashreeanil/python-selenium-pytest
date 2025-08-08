@@ -1,0 +1,12 @@
+2025-08-08 19:03:08 [[32mINFO[0m] Clicking the My Account link.
+2025-08-08 19:03:08 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='My account']")
+2025-08-08 19:03:08 [[32mINFO[0m] Logging in user with username: valid_user and password: invalid_password
+2025-08-08 19:03:08 [[32mINFO[0m] Entering username: valid_user
+2025-08-08 19:03:08 [[32mINFO[0m] Sending keys 'valid_user' to element located by ('id', 'username')
+2025-08-08 19:03:09 [[32mINFO[0m] Entering password: invalid_password
+2025-08-08 19:03:09 [[32mINFO[0m] Sending keys 'invalid_password' to element located by ('id', 'password')
+2025-08-08 19:03:09 [[32mINFO[0m] Clicking the Login button.
+2025-08-08 19:03:09 [[32mINFO[0m] Clicking element by locator: ('css selector', "button[value='Log in']")
+2025-08-08 19:03:09 [[32mINFO[0m] Retrieving invalid login message.
+2025-08-08 19:03:09 [[32mINFO[0m] Text found: Error: The username valid_user is not registered on this site. If you are unsure of your username, try your email address instead.
+2025-08-08 19:03:09 [[32mINFO[0m] Checking if actual text contains expected text: Error:

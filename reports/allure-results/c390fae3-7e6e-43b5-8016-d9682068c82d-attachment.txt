@@ -1,0 +1,11 @@
+2025-08-08 19:03:04 [[32mINFO[0m] Clicking the My Account link.
+2025-08-08 19:03:04 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='My account']")
+2025-08-08 19:03:05 [[32mINFO[0m] Logging in user with username: demo@gmail.com and password: Test1234
+2025-08-08 19:03:05 [[32mINFO[0m] Entering username: demo@gmail.com
+2025-08-08 19:03:05 [[32mINFO[0m] Sending keys 'demo@gmail.com' to element located by ('id', 'username')
+2025-08-08 19:03:05 [[32mINFO[0m] Entering password: Test1234
+2025-08-08 19:03:05 [[32mINFO[0m] Sending keys 'Test1234' to element located by ('id', 'password')
+2025-08-08 19:03:05 [[32mINFO[0m] Clicking the Login button.
+2025-08-08 19:03:05 [[32mINFO[0m] Clicking element by locator: ('css selector', "button[value='Log in']")
+2025-08-08 19:03:06 [[32mINFO[0m] Retrieving invalid login message.
+2025-08-08 19:03:06 [[32mINFO[0m] Text found: Error: The password you entered for the email address demo@gmail.com is incorrect. Lost your password?

@@ -1,0 +1,2 @@
+2025-08-08 19:02:22 [[32mINFO[0m] Checking if the home page has loaded.
+2025-08-08 19:02:22 [[32mINFO[0m] Element is visible.
