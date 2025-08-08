@@ -5,6 +5,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import Select
 import allure
 from utils.logger_utility import logger
+from selenium.webdriver.common.keys import Keys
+
 
 class WebUtility:
     def __init__(self, driver, timeout=10):
@@ -322,5 +324,50 @@ class WebUtility:
         except Exception as e:
             logger.error(f"Failed to mouse hover on element by {by}: {value} - {e}")
             allure.attach(str(e), name="Mouse Hover Error", attachment_type=allure.attachment_type.TEXT)
+            raise
+        return self
+    
+
+    @allure.step("Get text from multiple elements by {1}: {2}")
+    def get_text_elements(self, element):
+        """
+        Get text from multiple elements located by the given locator.
+        Returns a list of text values.
+        """
+        try:
+            logger.debug(f"Getting text from element: {element}")
+            text = element.text
+            logger.info(f"Texts found: {text}")
+            return text
+        except Exception as e:
+            logger.error(f"Failed to get text from element: {element} - {e}")
+            allure.attach(str(e), name="Get Text Elements Error", attachment_type=allure.attachment_type.TEXT)
+            raise
+
+    @allure.step("Submit form for element by locator: {locator}")
+    def submit(self, locator: tuple):
+        """
+        Submit a form by sending the ENTER key to the specified element.
+        """
+        try:
+            logger.info(f"Submitting form for element by locator: {locator}")
+            element = self.find_element(locator)
+            element.send_keys("\n")  # Simulate pressing Enter
+        except Exception as e:
+            logger.error(f"Failed to submit form for element by locator: {locator} - {e}")
+            allure.attach(str(e), name="Submit Form Error", attachment_type=allure.attachment_type.TEXT)
+            raise
+        return self
+    
+    def send_keys_and_enter(self, locator: tuple, keys: str):
+        """
+        Send keys to an element and then submit the form.
+        """
+        try:
+            logger.info(f"Sending keys and submitting for element by locator: {locator}")
+            self.send_keys(locator, keys + Keys.ENTER)
+        except Exception as e:
+            logger.error(f"Failed to send keys and submit for element by locator: {locator} - {e}")
+            allure.attach(str(e), name="Send Keys and Enter Error", attachment_type=allure.attachment_type.TEXT)
             raise
         return self
