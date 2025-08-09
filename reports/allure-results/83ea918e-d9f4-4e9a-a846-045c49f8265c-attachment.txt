@@ -1,0 +1,5 @@
+2025-08-09 18:27:46 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='My account']")
+2025-08-09 18:27:47 [[32mINFO[0m] Sending keys 'invalid_user' to element located by ('id', 'username')
+2025-08-09 18:27:48 [[32mINFO[0m] Sending keys 'valid_password' to element located by ('id', 'password')
+2025-08-09 18:27:50 [[32mINFO[0m] Clicking element by locator: ('css selector', "button[value='Log in']")
+2025-08-09 18:27:51 [[32mINFO[0m] Text found: Error: The username invalid_user is not registered on this site. If you are unsure of your username, try your email address instead.

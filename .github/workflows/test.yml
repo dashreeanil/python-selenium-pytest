@@ -1,0 +1,60 @@
+name: Selenium Grid Tests
+
+on:
+  push:
+    branches: [ "*" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  selenium-tests:
+    runs-on: ubuntu-latest
+
+    services:
+      docker:
+        image: docker:20.10.16
+        options: --privileged
+
+    steps:
+    - name: ⬇️ Checkout code
+      uses: actions/checkout@v3
+
+    - name: 🐍 Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: 📦 Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: 🐳 Start Selenium Grid
+      run: docker-compose -f docker-compose.yml up -d
+
+    - name: ⏳ Wait for Grid readiness
+      run: |
+        for i in {1..60}; do
+          STATUS=$(curl -s http://localhost:4444/status | jq -r '.ready')
+          if [ "$STATUS" = "true" ]; then
+            echo "✅ Grid is ready"
+            break
+          fi
+          echo "Waiting for Grid..."
+          sleep 2
+        done
+
+    - name: 🚀 Run Pytest suite
+      run: |
+        python run_tests.py --env=qa --browser=chrome --headless --workers=4
+
+    - name: 📤 Upload screenshots on failure
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: failure-screenshots
+        path: screenshot/
+
+    - name: 🧹 Stop Selenium Grid
+      if: always()
+      run: docker-compose -f docker-compose.yml down

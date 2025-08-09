@@ -1,0 +1,5 @@
+2025-08-09 18:28:00 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='My account']")
+2025-08-09 18:28:01 [[32mINFO[0m] Sending keys '' to element located by ('id', 'username')
+2025-08-09 18:28:01 [[32mINFO[0m] Sending keys 'valid_password' to element located by ('id', 'password')
+2025-08-09 18:28:02 [[32mINFO[0m] Clicking element by locator: ('css selector', "button[value='Log in']")
+2025-08-09 18:28:02 [[32mINFO[0m] Text found: Error: Username is required.

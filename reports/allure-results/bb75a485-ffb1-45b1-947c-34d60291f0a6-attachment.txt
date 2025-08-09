@@ -1,0 +1,26 @@
+2025-08-09 18:27:38 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='Home']")
+2025-08-09 18:27:39 [[32mINFO[0m] Sending keys and submitting for element by locator: ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-09 18:27:39 [[32mINFO[0m] Sending keys 'Hoodie' to element located by ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-09 18:27:50 [[1m[31mERROR[0m] Failed to get text from element by locator: ('css selector', '.product_title.entry-title') - Message: 
+Stacktrace:
+	GetHandleVerifier [0x0x7ff74765e415+77285]
+	GetHandleVerifier [0x0x7ff74765e470+77376]
+	(No symbol) [0x0x7ff747429a6a]
+	(No symbol) [0x0x7ff747480406]
+	(No symbol) [0x0x7ff7474806bc]
+	(No symbol) [0x0x7ff7474d3ac7]
+	(No symbol) [0x0x7ff7474a864f]
+	(No symbol) [0x0x7ff7474d087f]
+	(No symbol) [0x0x7ff7474a83e3]
+	(No symbol) [0x0x7ff747471521]
+	(No symbol) [0x0x7ff7474722b3]
+	GetHandleVerifier [0x0x7ff747941efd+3107021]
+	GetHandleVerifier [0x0x7ff74793c29d+3083373]
+	GetHandleVerifier [0x0x7ff74795bedd+3213485]
+	GetHandleVerifier [0x0x7ff74767884e+184862]
+	GetHandleVerifier [0x0x7ff74768055f+216879]
+	GetHandleVerifier [0x0x7ff747667084+113236]
+	GetHandleVerifier [0x0x7ff747667239+113673]
+	GetHandleVerifier [0x0x7ff74764e298+11368]
+	BaseThreadInitThunk [0x0x7ff84a39e8d7+23]
+	RtlUserThreadStart [0x0x7ff84a89c34c+44]
