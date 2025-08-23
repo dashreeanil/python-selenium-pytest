@@ -3,6 +3,10 @@
 # Set the environment: dev, qa, staging, prod
 environment: dev
 
+# Selenium Grid configuration
+grid_url: http://localhost:4444/wd/hub
+
+
 # URLs for different environments
 urls:
   dev: "http://demostore.supersqa.com/"

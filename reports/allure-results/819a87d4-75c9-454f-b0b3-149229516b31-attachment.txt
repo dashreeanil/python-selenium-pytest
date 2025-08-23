@@ -1,0 +1,5 @@
+2025-08-09 18:27:30 [[32mINFO[0m] Clicking element by locator: ('xpath', "//a[.='Home']")
+2025-08-09 18:27:35 [[32mINFO[0m] Sending keys and submitting for element by locator: ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-09 18:27:35 [[32mINFO[0m] Sending keys 'Belt' to element located by ('xpath', "//input[@id='woocommerce-product-search-field-0']")
+2025-08-09 18:27:38 [[32mINFO[0m] Text found: Belt
+2025-08-09 18:27:38 [[32mINFO[0m] Product 'Belt' found in search results.
